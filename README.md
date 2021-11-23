@@ -19,7 +19,7 @@ DDD脚手架
 
 ## 项目结构
 ```
-./ddd-application  // 业务层
+./ddd-application  // 应用层
 ├── pom.xml
 └── src
     └── main
@@ -115,7 +115,7 @@ DDD脚手架
                         │   └── UserUpdateEvent.java
                         └── impl // 领域逻辑
                             └── AuthorizeDomainServiceImpl.java
-./ddd-infra  // 存储层
+./ddd-infra  // 基础服务层
 ├── pom.xml
 └── src
     └── main
@@ -135,7 +135,7 @@ DDD脚手架
                                 ├── UserMapper.java
                                 └── UserRoleMapper.java
 ./ddd-interface
-├── ddd-api  // 应用层
+├── ddd-api  // 用户接口层
 │   ├── pom.xml
 │   └── src
 │       └── main
