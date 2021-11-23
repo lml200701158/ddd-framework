@@ -1,7 +1,7 @@
 # ddd-framework
 DDD框架
 
-/README.md [error opening dir]
+​
 ./ddd-application  // 业务层
 ├── pom.xml
 └── src
@@ -144,3 +144,5 @@ DDD框架
 └── ddd-task
     └── pom.xml
 ./pom.xml
+
+​
