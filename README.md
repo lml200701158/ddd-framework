@@ -1,5 +1,164 @@
 # ddd-framework
 DDD框架
 
+## 为何编写此脚手架
 
-<p style="margin:0;">./ddd-application&nbsp; // 业务层</p><p style="margin:0;">├── pom.xml</p><p style="margin:0;">└── src</p><p style="margin:0;">&nbsp; &nbsp; └── main</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; └── java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── com</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── ddd</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── applicaiton</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── converter</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── UserApplicationConverter.java // 类型转换器</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── impl</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── AuthrizeApplicationServiceImpl.java // 业务逻辑</p><p style="margin:0;">./ddd-common</p><p style="margin:0;">├── ddd-common // 通用类库</p><p style="margin:0;">│&nbsp; &nbsp;├── pom.xml</p><p style="margin:0;">│&nbsp; &nbsp;└── src</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp;└── main</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── com</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── ddd</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── common</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── exception</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── ServiceException.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── ValidationException.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── result</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── BaseResult.javar</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── Page.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── PageResult.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── Result.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── util</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── GsonUtil.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── ValidationUtil.java</p><p style="margin:0;">├── ddd-common-application // 业务层通用模块</p><p style="margin:0;">│&nbsp; &nbsp;├── pom.xml</p><p style="margin:0;">│&nbsp; &nbsp;└── src</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp;└── main</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── com</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── ddd</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── applicaiton</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── dto // DTO</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── RoleInfoDTO.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── UserRoleDTO.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── servic // 业务接口</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── AuthrizeApplicationService.java</p><p style="margin:0;">├── ddd-common-domain</p><p style="margin:0;">│&nbsp; &nbsp;├── pom.xml</p><p style="margin:0;">│&nbsp; &nbsp;└── src</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp;└── main</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── com</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── ddd</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── domain</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── event // 领域事件</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── BaseDomainEvent.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── DomainEventPublisher.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── service // 领域接口</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── AuthorizeDomainService.java</p><p style="margin:0;">└── ddd-common-infra</p><p style="margin:0;">&nbsp; &nbsp; ├── pom.xml</p><p style="margin:0;">&nbsp; &nbsp; └── src</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; └── main</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── com</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── ddd</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── infra</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── domain // 领域对象</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── AuthorizeDO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── dto // DTO</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── AddressDTO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── RoleDTO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── UnitDTO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── UserRoleDTO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── repository</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── UserRepository.java // 领域仓库</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── mybatis</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── entity // PO</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── BaseUuidEntity.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── RolePO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── UserPO.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── UserRolePO.java</p><p style="margin:0;">./ddd-domian&nbsp; // 领域层</p><p style="margin:0;">├── pom.xml</p><p style="margin:0;">└── src</p><p style="margin:0;">&nbsp; &nbsp; └── main</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; └── java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── com</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── ddd</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── domain</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── event // 领域事件</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── DomainEventPublisherImpl.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── UserCreateEvent.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;├── UserDeleteEvent.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── UserUpdateEvent.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── impl // 领域逻辑</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── AuthorizeDomainServiceImpl.java</p><p style="margin:0;">./ddd-infra&nbsp; // 存储层</p><p style="margin:0;">├── pom.xml</p><p style="margin:0;">└── src</p><p style="margin:0;">&nbsp; &nbsp; └── main</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; └── java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── com</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── ddd</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── infra</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── config</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── InfraCoreConfig.java&nbsp; // 扫描Mapper文件</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── repository</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── converter</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── UserConverter.java // 类型转换器</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── impl</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; │&nbsp; &nbsp;└── UserRepositoryImpl.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── mapper</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── RoleMapper.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ├── UserMapper.java</p><p style="margin:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └── UserRoleMapper.java</p><p style="margin:0;">./ddd-interface</p><p style="margin:0;">├── ddd-api&nbsp; // 应用层</p><p style="margin:0;">│&nbsp; &nbsp;├── pom.xml</p><p style="margin:0;">│&nbsp; &nbsp;└── src</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp;└── main</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── com</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp;└── ddd</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── api</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── DDDFrameworkApiApplication.java // 启动入口</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── converter</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── AuthorizeConverter.java // 类型转换器</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── model</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;├── req // 入参 req</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;│&nbsp; &nbsp;├── AuthorizeCreateReq.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;│&nbsp; &nbsp;└── AuthorizeUpdateReq.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp;└── vo&nbsp; // 输出 VO</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp;└── UserAuthorizeVO.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── web&nbsp; &nbsp; &nbsp;// API</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── AuthorizeController.java</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── resources // 资源文件</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;├── application.yml</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── resources // 资源</p><p style="margin:0;">│&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;└── init.sql</p><p style="margin:0;">└── ddd-task</p><p style="margin:0;">&nbsp; &nbsp; └── pom.xml</p><p style="margin:0;">./pom.xml</p>
+- 解决编写过程式和事务代码，造成后期维护逻辑混乱、维护成本高的痛点；
+- 抛弃MVC框架，拥抱更适合复杂业务的开发框架；
+- 将DDD落地，通过脚手架的改变，推动DDD思想的讨论学习发芽
+
+## 此脚手架坚持的原则
+
+- 以领域驱动（DDD）设计为基础，分层清楚，做默认规范
+
+## 为何要强制分层
+
+- 高内聚低耦合，提高各个层次间的复用性，减少模块间接口的复杂程度
+- 各个层次中的变化不影响其上层和下层
+- 层次分明便于mock和查找问题，各个层次间异常处理机制可控
+
+## 项目结构
+```
+./ddd-application  // 业务层
+├── pom.xml
+└── src
+    └── main
+        └── java
+            └── com
+                └── ddd
+                    └── applicaiton
+                        ├── converter
+                        │   └── UserApplicationConverter.java // 类型转换器
+                        └── impl
+                            └── AuthrizeApplicationServiceImpl.java // 业务逻辑
+./ddd-common
+├── ddd-common // 通用类库
+│   ├── pom.xml
+│   └── src
+│       └── main
+│           └── java
+│               └── com
+│                   └── ddd
+│                       └── common
+│                           ├── exception
+│                           │   ├── ServiceException.java
+│                           │   └── ValidationException.java
+│                           ├── result
+│                           │   ├── BaseResult.javar
+│                           │   ├── Page.java
+│                           │   ├── PageResult.java
+│                           │   └── Result.java
+│                           └── util
+│                               ├── GsonUtil.java
+│                               └── ValidationUtil.java
+├── ddd-common-application // 业务层通用模块
+│   ├── pom.xml
+│   └── src
+│       └── main
+│           └── java
+│               └── com
+│                   └── ddd
+│                       └── applicaiton
+│                           ├── dto // DTO
+│                           │   ├── RoleInfoDTO.java
+│                           │   └── UserRoleDTO.java
+│                           └── servic // 业务接口
+│                               └── AuthrizeApplicationService.java
+├── ddd-common-domain
+│   ├── pom.xml
+│   └── src
+│       └── main
+│           └── java
+│               └── com
+│                   └── ddd
+│                       └── domain
+│                           ├── event // 领域事件
+│                           │   ├── BaseDomainEvent.java
+│                           │   └── DomainEventPublisher.java
+│                           └── service // 领域接口
+│                               └── AuthorizeDomainService.java
+└── ddd-common-infra
+    ├── pom.xml
+    └── src
+        └── main
+            └── java
+                └── com
+                    └── ddd
+                        └── infra
+                            ├── domain // 领域对象
+                            │   └── AuthorizeDO.java
+                            ├── dto // DTO
+                            │   ├── AddressDTO.java
+                            │   ├── RoleDTO.java
+                            │   ├── UnitDTO.java
+                            │   └── UserRoleDTO.java
+                            └── repository
+                                ├── UserRepository.java // 领域仓库
+                                └── mybatis
+                                    └── entity // PO
+                                        ├── BaseUuidEntity.java
+                                        ├── RolePO.java
+                                        ├── UserPO.java
+                                        └── UserRolePO.java
+./ddd-domian  // 领域层
+├── pom.xml
+└── src
+    └── main
+        └── java
+            └── com
+                └── ddd
+                    └── domain
+                        ├── event // 领域事件
+                        │   ├── DomainEventPublisherImpl.java
+                        │   ├── UserCreateEvent.java
+                        │   ├── UserDeleteEvent.java
+                        │   └── UserUpdateEvent.java
+                        └── impl // 领域逻辑
+                            └── AuthorizeDomainServiceImpl.java
+./ddd-infra  // 存储层
+├── pom.xml
+└── src
+    └── main
+        └── java
+            └── com
+                └── ddd
+                    └── infra
+                        ├── config
+                        │   └── InfraCoreConfig.java  // 扫描Mapper文件
+                        └── repository
+                            ├── converter
+                            │   └── UserConverter.java // 类型转换器
+                            ├── impl
+                            │   └── UserRepositoryImpl.java
+                            └── mapper
+                                ├── RoleMapper.java
+                                ├── UserMapper.java
+                                └── UserRoleMapper.java
+./ddd-interface
+├── ddd-api  // 应用层
+│   ├── pom.xml
+│   └── src
+│       └── main
+│           ├── java
+│           │   └── com
+│           │       └── ddd
+│           │           └── api
+│           │               ├── DDDFrameworkApiApplication.java // 启动入口
+│           │               ├── converter
+│           │               │   └── AuthorizeConverter.java // 类型转换器
+│           │               ├── model
+│           │               │   ├── req // 入参 req
+│           │               │   │   ├── AuthorizeCreateReq.java
+│           │               │   │   └── AuthorizeUpdateReq.java
+│           │               │   └── vo  // 输出 VO
+│           │               │       └── UserAuthorizeVO.java
+│           │               └── web     // API
+│           │                   └── AuthorizeController.java
+│           └── resources // 资源文件
+│               ├── application.yml
+│           └── resources // 资源
+│               └── init.sql
+└── ddd-task
+    └── pom.xml
+./pom.xml
+```
