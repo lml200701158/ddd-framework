@@ -40,15 +40,15 @@ DDD框架
 │               └── com
 │                   └── ddd
 │                       └── common
-│                           ├── exception
+│                           ├── exception // 异常
 │                           │   ├── ServiceException.java
 │                           │   └── ValidationException.java
-│                           ├── result
+│                           ├── result // 返回结果集
 │                           │   ├── BaseResult.javar
 │                           │   ├── Page.java
 │                           │   ├── PageResult.java
 │                           │   └── Result.java
-│                           └── util
+│                           └── util // 通用工具
 │                               ├── GsonUtil.java
 │                               └── ValidationUtil.java
 ├── ddd-common-application // 业务层通用模块
@@ -85,9 +85,9 @@ DDD框架
                 └── com
                     └── ddd
                         └── infra
-                            ├── domain // 领域对象
+                            ├── domain // DO
                             │   └── AuthorizeDO.java
-                            ├── dto // DTO
+                            ├── dto 
                             │   ├── AddressDTO.java
                             │   ├── RoleDTO.java
                             │   ├── UnitDTO.java
@@ -154,9 +154,9 @@ DDD框架
 │           │               │       └── UserAuthorizeVO.java
 │           │               └── web     // API
 │           │                   └── AuthorizeController.java
-│           └── resources // 资源文件
+│           └── resources // 系统配置
 │               ├── application.yml
-│           └── resources // 资源
+│           └── resources // Sql文件
 │               └── init.sql
 └── ddd-task
     └── pom.xml
