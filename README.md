@@ -163,16 +163,18 @@ DDD脚手架
 ./pom.xml
 ```
 
-## 服务启动
-#### 1. 修改SQL配置
+## 功能测试
+### 1. 修改SQL配置
 修改"ddd-interface/ddd-api/src/main/resources/application.yml"的数据库配置。
-#### 2. 启动服务
-直接启动服务即可
-#### 3. 测试用例
+
+### 2. 启动服务
+直接启动服务即可。
+
+### 3. 测试用例
 
 - 请求URL：http://127.0.0.1:8087/api/user/save
 - Post body：{"userName":"louzai","realName":"楼","phone":13123676844,"password":"***","unitId":2,"province":"湖北省","city":"鄂州市","county":"葛店开发区","roles":[{"roleId":2}]}
-- 更多测试用例详见文件"AuthorizeController.java"
+- 更多测试用例详见"AuthorizeController.java"
 
 ## 维护者
 
