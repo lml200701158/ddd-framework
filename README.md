@@ -165,13 +165,13 @@ DDD脚手架
 
 ## 功能测试
 ### 1. 新建库表
-通过文件"ddd-interface/ddd-api/src/main/resources/init.sql"新建库表。
+- 通过文件"ddd-interface/ddd-api/src/main/resources/init.sql"新建库表。
 
 ### 2. 修改SQL配置
-修改"ddd-interface/ddd-api/src/main/resources/application.yml"的数据库配置。
+- 修改"ddd-interface/ddd-api/src/main/resources/application.yml"的数据库配置。
 
 ### 3. 启动服务
-直接启动服务即可。
+- 直接启动服务即可。
 
 ### 4. 测试用例
 
