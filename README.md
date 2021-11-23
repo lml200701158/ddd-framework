@@ -75,7 +75,7 @@ DDD框架
                             │   ├── RoleDTO.java
                             │   ├── UnitDTO.java
                             │   └── UserRoleDTO.java
-                            └── repository 
+                            └── repository
                                 ├── UserRepository.java // 领域仓库
                                 └── mybatis
                                     └── entity // PO
@@ -117,7 +117,7 @@ DDD框架
                                 ├── RoleMapper.java
                                 ├── UserMapper.java
                                 └── UserRoleMapper.java
-./ddd-interface   
+./ddd-interface
 ├── ddd-api  // 应用层
 │   ├── pom.xml
 │   └── src
