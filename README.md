@@ -44,7 +44,7 @@ DDD脚手架
 │                           │   ├── ServiceException.java
 │                           │   └── ValidationException.java
 │                           ├── result // 返回结果集
-│                           │   ├── BaseResult.javar
+│                           │   ├── BaseResult.java
 │                           │   ├── Page.java
 │                           │   ├── PageResult.java
 │                           │   └── Result.java
